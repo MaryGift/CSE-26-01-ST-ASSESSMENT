@@ -1,0 +1,194 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title ParkEase Inventory Dashboard
+
+    // Bootstrap CSS
+    link(
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    )
+
+    style.
+      body {
+        background: #f3f3f3;
+        font-family: Arial, sans-serif;
+      }
+
+      .dashboard {
+        padding: 30px;
+      }
+
+      .card-box {
+        background: white;
+        border-radius: 6px;
+        padding: 30px;
+        box-shadow: 0 0 4px rgba(0,0,0,0.1);
+      }
+
+      .stats-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 260px;
+      }
+
+      .divider {
+        width: 1px;
+        height: 140px;
+        background: #ccc;
+      }
+
+      .mini-cards {
+        display: flex;
+        gap: 20px;
+        margin-top: 20px;
+      }
+
+      .mini-card {
+        flex: 1;
+        background: white;
+        border-radius: 6px;
+        padding: 30px;
+        text-align: center;
+        box-shadow: 0 0 4px rgba(0,0,0,0.1);
+      }
+
+      .green {
+        color: #00b050;
+        font-weight: bold;
+      }
+
+      .red {
+        color: red;
+        font-weight: bold;
+      }
+
+      .form-control {
+        height: 45px;
+      }
+
+      .btn-save {
+        background: #f07f2f;
+        color: white;
+        font-weight: bold;
+      }
+
+      .btn-clear {
+        background: #cfcaca;
+        font-weight: bold;
+      }
+
+      table {
+        background: white;
+      }
+
+      thead {
+        background: black;
+        color: white;
+      }
+
+  body
+    .container.dashboard
+      .row.g-4
+
+        // LEFT SIDE
+        .col-md-6
+          .card-box.stats-container
+            div
+              h1.fw-bold UGX #{sales}
+              h3.text-muted Sales
+
+            .divider
+
+            div
+              h1.fw-bold UGX #{orders}
+              h3.text-muted Orders
+
+          .mini-cards
+            .mini-card
+              h1.green UGX #{inStock}
+              h3.text-muted In stock
+
+            .mini-card
+              h1.red #{outStock}
+              h3.text-muted Out of stock
+
+        // RIGHT SIDE FORM
+        .col-md-6
+          .card-box
+            h2.mb-4 Add Product
+
+            form(action="/products/add" method="POST")
+              .mb-3
+                input.form-control(
+                  type="text"
+                  name="name"
+                  placeholder="Product Name"
+                  required
+                )
+
+              .mb-3
+                input.form-control(
+                  type="text"
+                  name="category"
+                  placeholder="Category"
+                  required
+                )
+
+              .mb-3
+                input.form-control(
+                  type="number"
+                  name="price"
+                  placeholder="Price"
+                  required
+                )
+
+              .mb-3
+                input.form-control(
+                  type="number"
+                  name="quantity"
+                  placeholder="Quantity"
+                  required
+                )
+
+              .row.mb-3
+                .col-md-6
+                  input.form-control(
+                    type="text"
+                    name="color"
+                    placeholder="Color"
+                  )
+
+                .col-md-6
+                  input.form-control(type="file")
+
+              .row
+                .col-md-6
+                  button.btn.btn-save.w-100(type="submit") SAVE
+
+                .col-md-6
+                  button.btn.btn-clear.w-100(type="reset") CLEAR
+
+      // TABLE
+      .row.mt-4
+        .col-12
+          table.table.table-bordered.text-center
+            thead
+              tr
+                th ID
+                th NAME
+                th CATEGORY
+                th PRICE(UGX)
+                th QUANTITY
+
+            tbody
+              each product in products
+                tr
+                  td #{product._id}
+                  td #{product.name}
+                  td #{product.category}
+                  td #{product.price.toLocaleString()}
+                  td #{product.quantity}

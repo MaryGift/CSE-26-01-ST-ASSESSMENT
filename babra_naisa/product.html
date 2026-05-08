@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Best Shoppers Market</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      font-family:'Poppins', sans-serif;
+      background:#ef7d2d;
+      height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+    }
+
+    .container{
+      text-align:center;
+    }
+
+    /* LOGO CIRCLE */
+    .logo-circle{
+      width:330px;
+      height:330px;
+      border:18px solid white;
+      border-radius:50%;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      margin:auto;
+      background:transparent;
+    }
+
+    .logo-content{
+      color:white;
+      text-align:center;
+    }
+
+    .logo-content h1{
+      font-size:70px;
+      font-weight:700;
+      line-height:1;
+      letter-spacing:2px;
+      text-shadow:3px 3px 0px rgba(255,255,255,0.2);
+    }
+
+    .logo-content h2{
+      font-size:34px;
+      margin-top:10px;
+      font-weight:600;
+      letter-spacing:1px;
+    }
+
+    .logo-content p{
+      margin-top:5px;
+      font-size:55px;
+      font-family:'Great Vibes', cursive;
+      font-weight:400;
+    }
+
+    /* BUTTON */
+    .join-btn{
+      margin-top:70px;
+      width:300px;
+      height:80px;
+      border:none;
+      border-radius:10px;
+      background:#f2f2f2;
+      color:#ef7d2d;
+      font-size:32px;
+      font-weight:600;
+      cursor:pointer;
+      transition:0.3s ease;
+      box-shadow:0 4px 10px rgba(0,0,0,0.15);
+    }
+
+    .join-btn:hover{
+      background:white;
+      transform:scale(1.03);
+    }
+
+    @media(max-width:768px){
+
+      .logo-circle{
+        width:260px;
+        height:260px;
+      }
+
+      .logo-content h1{
+        font-size:50px;
+      }
+
+      .logo-content h2{
+        font-size:26px;
+      }
+
+      .logo-content p{
+        font-size:42px;
+      }
+
+      .join-btn{
+        width:240px;
+        height:70px;
+        font-size:24px;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- LOGO -->
+    <div class="logo-circle">
+      <div class="logo-content">
+        <h1>BEST</h1>
+        <h2>SHOPPERS</h2>
+        <p>Market</p>
+      </div>
+    </div>
+
+    <!-- BUTTON -->
+    <button class="join-btn">
+      JOIN NOW
+    </button>
+
+  </div>
+
+</body>
+</html>
